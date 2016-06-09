@@ -6,7 +6,14 @@ No serious work can be done in this are without consulting [jsonpath documentati
 
 ### Syntax/Semantics for splitting on camel-jsonpath?
 
-I was unable to find much of anything in terms of example syntax/semantics for splitting a json message using jsonpath, so I'm including the first thing I got to work. Maybe I'll get lucky and someone will send me some better suggestions.
+I found two different semantics for writing a jsonpath split. Knowing Camel, there are probably dozens more :). But on the four examples in this x__project I alternated each of the two, to demo each.
+
+Either of these seems to work the same:
+
+ * .split(new JsonPathExpression("$.employees.[*].city"))
+ * .split().jsonpath("$.employees.[*].city")
+ 
+ With the longer of the above has the advantage of being able to externalize as a variable, as was done in the example.
 
 ### Running and Testing
 
